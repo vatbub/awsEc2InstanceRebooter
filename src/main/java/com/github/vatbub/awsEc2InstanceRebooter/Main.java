@@ -29,8 +29,8 @@ import org.apache.commons.cli.*;
 import java.util.logging.Level;
 
 public class Main {
-    public static void main(String[] args){
-        Common.setAppName("awsEc2InstanceRebooter");
+    public static void main(String[] args) {
+        Common.getInstance().setAppName("awsEc2InstanceRebooter");
         Options cliOptions = new Options();
 
         Option commandOption = new Option("c", "command", true, "The command to execute. Can either be start, stop or reboot");
@@ -55,9 +55,9 @@ public class Main {
         CommandLineParser parser = new DefaultParser();
         try {
             // parse the command line arguments
-            CommandLine commandLine = parser.parse( cliOptions, args );
+            CommandLine commandLine = parser.parse(cliOptions, args);
             Command command = Command.valueOf(commandLine.getOptionValue("c"));
-            switch(command){
+            switch (command) {
                 case start:
                     AWSEC2Rebooter.startInstance(commandLine.getOptionValue("i"), Regions.valueOf(commandLine.getOptionValue("r")), commandLine.getOptionValue("k"), commandLine.getOptionValue("s"));
                     break;
@@ -68,17 +68,16 @@ public class Main {
                     AWSEC2Rebooter.rebootInstance(commandLine.getOptionValue("i"), Regions.valueOf(commandLine.getOptionValue("r")), commandLine.getOptionValue("k"), commandLine.getOptionValue("s"));
                     break;
             }
-        }
-        catch( ParseException e ) {
+        } catch (ParseException e) {
             // oops, something went wrong
             FOKLogger.log(Main.class.getName(), Level.SEVERE, "Could not parse command line arguments", e);
             printHelpMessage(cliOptions);
         }
     }
 
-    public static void printHelpMessage(Options cliOptions){
+    public static void printHelpMessage(Options cliOptions) {
         HelpFormatter formatter = new HelpFormatter();
-        formatter.printHelp( Common.getPathAndNameOfCurrentJar(), cliOptions );
+        formatter.printHelp(Common.getInstance().getPathAndNameOfCurrentJar(), cliOptions);
     }
 
     private enum Command {
