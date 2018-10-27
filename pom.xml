@@ -30,11 +30,11 @@
     <parent>
         <groupId>com.github.vatbub</groupId>
         <artifactId>parentPom</artifactId>
-        <version>0.0.25</version>
+        <version>0.0.26-SNAPSHOT</version>
     </parent>
 
     <artifactId>awsEc2InstanceRebooter</artifactId>
-    <version>1.1</version>
+    <version>1.2-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>AWS EC2 Instance Rebooter</name>
     <description>Simple tool to remotely reboot AWS EC2 instances</description>
@@ -43,7 +43,7 @@
         <connection>scm:git:git@github.com:vatbub/${gitRepoName}.git</connection>
         <url>https://github.com/vatbub/${gitRepoName}</url>
         <developerConnection>scm:git:git@github.com:vatbub/${gitRepoName}.git</developerConnection>
-        <tag>awsEc2InstanceRebooter-1.1</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <issueManagement>
@@ -72,7 +72,7 @@
         <dependency>
             <groupId>com.github.vatbub</groupId>
             <artifactId>common.core</artifactId>
-            <version>0.1.5</version>
+            <version>0.1.6-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>commons-cli</groupId>
