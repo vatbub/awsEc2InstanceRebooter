@@ -1,0 +1,23 @@
+version: 2
+updates:
+- package-ecosystem: maven
+  directory: "/"
+  schedule:
+    interval: monthly
+    time: "04:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: com.amazonaws:aws-java-sdk-ec2
+    versions:
+    - 1.11.945
+    - 1.11.946
+    - 1.11.947
+    - 1.11.948
+    - 1.11.949
+    - 1.11.950
+    - 1.11.951
+    - 1.11.952
+    - 1.11.953
+    - 1.11.954
+    - 1.11.955
+    - 1.11.956
